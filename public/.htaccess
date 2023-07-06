@@ -1,0 +1,17 @@
+# Fichiers ressource à rechercher lorsque le client envoie une requête pour un répertoire
+DirectoryIndex index.php
+
+# Activation de l'exécution du moteur de réécriture
+RewriteEngine on
+
+# Définition de l'URL de base pour les réécritures au niveau répertoire
+RewriteBase /
+
+# Définition des conditions qui devront être satisfaite pour que la réécriture soit effectuée
+	RewriteCond % R{EQUEST_FILENAME} !-f
+	RewriteCond % R{EQUEST_FILENAME} !-d
+
+
+
+# 	Définition des règles pour le moteur de réécriture
+RewriteRule ^(.*)$ index.php [L]
